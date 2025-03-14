@@ -1,5 +1,5 @@
 import test from "ava";
-import { Product } from "./index";
+import { Product, User } from "./index";
 
 test("Testeo la clase Product", (t) => {
   // test Product class
@@ -7,4 +7,23 @@ test("Testeo la clase Product", (t) => {
   t.is(product.name, "Product 1");
   t.is(product.price, 10);
 });
-test("Testeo la clase User y sus métodos", (t) => {});
+
+  // test 2
+  test('user should have the correct name ',t =>{
+
+    const user = new User('jhon dope');
+    t.is(user.name,'jhon dope');
+  });
+
+  // test 3
+  test('user should have  add  a product  toproduct list ',t =>{
+      const user = new User('jane dope');
+      const product = new Product('laptop',1000);
+
+      user.addProduct(product);
+
+      t.is(user.products.length,1);
+      t.is(user.products[0].name,'laptop');
+      t.is(user.products[0].price,1000);
+  });
+
